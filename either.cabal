@@ -41,7 +41,7 @@ library
     mtl               >= 2.0     && < 2.3,
     profunctors       >= 4       && < 6,
     semigroups        >= 0.8.3.1 && < 1,
-    semigroupoids     >= 4       && < 6
+    semigroupoids     >= 6       && < 7
 
   other-extensions: CPP Rank2Types
   ghc-options: -Wall

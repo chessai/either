@@ -33,7 +33,7 @@ import Data.Bifunctor(Bifunctor(bimap))
 import Data.Bitraversable(Bitraversable(bitraverse))
 import Data.Foldable (Foldable(foldr))
 import Data.Functor.Alt (Alt((<!>)))
-import Data.Functor.Apply (Apply ((<.>)))
+import Data.Functor.Semiapplicative (Semiapplicative ((<.>)))
 import Data.Monoid (Monoid(mappend, mempty))
 import Data.Profunctor
 import Data.Semigroup (Semigroup((<>)))
@@ -50,7 +50,7 @@ instance Functor (Validation e) where
    fmap _ (Failure e) = Failure e
    fmap f (Success a) = Success (f a)
 
-instance Semigroup e => Apply (Validation e) where
+instance Semigroup e => Semiapplicative (Validation e) where
   Failure e1 <.> b = Failure $ case b of
     Failure e2 -> e1 <> e2
     Success _  -> e1
